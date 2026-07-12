@@ -1,0 +1,136 @@
+Sure. We can start with the basic Docker initialization commands. These are the commands you use when setting up Docker for the first time and starting your container journey.
+
+1. Check Docker installation
+docker --version
+
+Example output:
+
+Docker version 28.x.x
+
+Check Docker service:
+
+systemctl status docker
+2. Start Docker service
+
+If Docker is not running:
+
+sudo systemctl start docker
+
+Enable Docker after server reboot:
+
+sudo systemctl enable docker
+3. Test Docker installation
+
+Run a test container:
+
+docker run hello-world
+
+What happens:
+
+Docker Engine
+      |
+      Pull image hello-world
+      |
+      Create container
+      |
+      Run container
+      |
+      Stop container
+4. Check Docker information
+docker info
+
+Shows:
+
+Number of containers
+Images
+Storage driver
+Docker version
+5. Check running containers
+
+Only running containers:
+
+docker ps
+
+All containers:
+
+docker ps -a
+
+Example:
+
+CONTAINER ID   IMAGE          STATUS
+abc123         nginx          Up 10 minutes
+6. Download an image
+
+Example: nginx
+
+docker pull nginx
+
+List downloaded images:
+
+docker images
+
+Output:
+
+REPOSITORY   TAG
+nginx        latest
+7. Create and run a container
+
+Example:
+
+docker run -d --name mynginx -p 8080:80 nginx
+
+Meaning:
+
+-d          → run in background
+--name      → container name
+-p          → port mapping
+nginx       → image name
+
+Check:
+
+docker ps
+
+Open browser:
+
+http://server-ip:8080
+8. Stop and start containers
+
+Stop:
+
+docker stop mynginx
+
+Start again:
+
+docker start mynginx
+
+Restart:
+
+docker restart mynginx
+9. Remove container
+
+Stop first:
+
+docker stop mynginx
+
+Remove:
+
+docker rm mynginx
+10. Remove image
+docker rmi nginx
+Basic Docker lifecycle to remember:
+docker pull
+      |
+      v
+docker image
+      |
+      v
+docker run
+      |
+      v
+docker ps
+      |
+      v
+docker stop
+      |
+      v
+docker rm
