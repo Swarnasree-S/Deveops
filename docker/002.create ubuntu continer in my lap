@@ -90,3 +90,21 @@ ubuntu@DESKTOP-PP6UARM:/mnt/c/Users/Admin$
 ```
 
 This means you have returned to your WSL Ubuntu environment.
+
+
+change terminal:
+--------------------
+
+ubuntu@DESKTOP-PP6UARM:/mnt/c/Users/Admin$ docker start myubuntu
+myubuntu
+ubuntu@DESKTOP-PP6UARM:/mnt/c/Users/Admin$ docker exec -it myubuntu bash
+root@518eaab32e71:/#
+
+exit
+
+docker stop myubuntu
+
+
+
+
+
