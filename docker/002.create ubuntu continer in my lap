@@ -1,0 +1,92 @@
+# Terminal Prompt Change After Creating a Docker Container
+
+## Before creating the container
+
+Terminal prompt:
+
+```bash
+ubuntu@DESKTOP-PP6UARM:/mnt/c/Users/Admin$
+```
+
+### Meaning
+
+| Part | Description |
+|------|-------------|
+| `ubuntu` | Logged-in user in WSL Ubuntu |
+| `DESKTOP-PP6UARM` | Computer (host) name |
+| `/mnt/c/Users/Admin` | Current working directory in WSL |
+| `$` | Normal user prompt |
+
+---
+
+## Command to create and enter the container
+
+```bash
+docker run -it --name myubuntu ubuntu bash
+```
+
+---
+
+## After entering the container
+
+Terminal prompt:
+
+```bash
+root@518eaab32e71:/#
+```
+
+### Meaning
+
+| Part | Description |
+|------|-------------|
+| `root` | Logged-in user inside the Docker container |
+| `518eaab32e71` | Docker Container ID (hostname) |
+| `/` | Root directory inside the container |
+| `#` | Root user prompt |
+
+---
+
+## Why did the prompt change?
+
+When you ran:
+
+```bash
+docker run -it --name myubuntu ubuntu bash
+```
+
+Docker:
+
+1. Created a new Ubuntu container.
+2. Started the container.
+3. Opened the **Bash shell** inside the container.
+4. Logged you in as the **root** user by default.
+
+That's why your prompt changed from:
+
+```bash
+ubuntu@DESKTOP-PP6UARM:/mnt/c/Users/Admin$
+```
+
+to:
+
+```bash
+root@518eaab32e71:/#
+```
+
+This indicates you are no longer working in your WSL Ubuntu environment—you are now working **inside the Docker container**.
+
+---
+
+## Exit the container
+
+```bash
+exit
+```
+
+After exiting, the prompt changes back to:
+
+```bash
+ubuntu@DESKTOP-PP6UARM:/mnt/c/Users/Admin$
+```
+
+This means you have returned to your WSL Ubuntu environment.
