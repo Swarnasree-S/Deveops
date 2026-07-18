@@ -518,3 +518,21 @@ ubuntu@DESKTOP-PP6UARM:/mnt/c/Users/Admin$ docker logs nginx
 172.17.0.1 - - [18/Jul/2026:11:10:09 +0000] "GET /favicon.ico HTTP/1.1" 404 555 "http://localhost/" "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/150.0.0.0 Safari/537.36" "-"
 2026/07/18 11:10:09 [error] 28#28: *2 open() "/usr/share/nginx/html/favicon.ico" failed (2: No such file or directory), client: 172.17.0.1, server: localhost, request: "GET /favicon.ico HTTP/1.1", host: "localhost", referrer: "http://localhost/"
 ubuntu@DESKTOP-PP6UARM:/mnt/c/Users/Admin$
+
+
+ngix url:
+-----------
+
+http://localhost/
+
+
+after load output:
+-------------
+Welcome to nginx!
+If you see this page, nginx is successfully installed and working. Further configuration is required for the web server, reverse proxy, API gateway, load balancer, content cache, or other features.
+
+For online documentation and support please refer to nginx.org.
+To engage with the community please visit community.nginx.org.
+For enterprise grade support, professional services, additional security features and capabilities please refer to f5.com/nginx.
+
+Thank you for using nginx.
