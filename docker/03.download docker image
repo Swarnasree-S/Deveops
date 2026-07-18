@@ -1,0 +1,7 @@
+docker pull <image> → Download an image
+docker images or docker image ls → List images
+docker run → Create and start a container
+docker ps / docker ps -a → List containers
+docker start → Start a stopped container
+docker stop → Stop a running container
+docker rm → Remove a container
