@@ -1,4 +1,28 @@
 docker run -d --name mynginx -p 8080:80 nginx
+------------------------------------------
+Here:
+
+'''8080 = Host port (your PC)-Host Port
+Exists on your computer (Windows/Linux/macOS).
+You use it in your browser.
+Must be unique.
+
+-------------------------------------------------
+80 = Container port (inside Docker) -Exists inside the Docker container.
+The application listens on this port.
+Multiple containers can use the same container port.
+-----------------------------------------------------
+Q: What does -p 8080:80 mean?
+
+Answer:
+
+8080 is the host port.
+80 is the container port.
+Requests to http://localhost:8080 are forwarded to port 80 inside the container.
+One-line shortcut to remember
+
+Left side = Host (outside Docker), Right side = Container (inside Docker). '''
+---------------------
 
 Your Browser
       │
