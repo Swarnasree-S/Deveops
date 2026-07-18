@@ -43,6 +43,8 @@ Application that stores important data? → Use a volume.
 Temporary/testing container? → A volume is optional.
 
 
+Create a new container with the same volume:
+
   Which containers usually need volumes?
 Container	Volume Needed?	Why
 Ubuntu	Optional	Save files you create
