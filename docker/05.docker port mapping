@@ -1,0 +1,48 @@
+docker run -d --name mynginx -p 8080:80 nginx
+
+Your Browser
+      │
+http://localhost:8080
+      │
+      ▼
+Windows Port 8080
+      │
+      ▼
+Docker Engine
+      │
+      ▼
+Container Port 80
+      │
+      ▼
+Nginx Web Server
+
+
+http://localhost:8080
+
+the request goes to:
+
+Windows (or WSL)
+Docker Engine
+Docker forwards it to port 80 inside the container.
+Nginx receives the request and sends back the web page.
+
+
+
+'''What if you don't use -p?
+docker run -d nginx
+
+The container is still running.
+
+docker ps
+
+might show something like:
+
+PORTS
+80/tcp
+
+Notice there's no mapping like 8080->80.
+
+That means:
+
+✅ Nginx is running.
+❌ Your browser cannot reach it.'''
