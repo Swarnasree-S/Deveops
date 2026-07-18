@@ -1,7 +1,7 @@
 # Nginx with Docker - Quick Reference
 
 ## Objective
-
+(in solar gencia instead ngix we  are using traffic for reverse proxy.traeffic avalable as a cotainer we can see  it in mmain org where prometheus connected to list metrics of trafic and all containers)
 Learn how to:
 
 - Pull the Nginx image
