@@ -1,0 +1,404 @@
+# Nginx with Docker - Quick Reference
+
+## Objective
+
+Learn how to:
+
+- Pull the Nginx image
+- Create an Nginx container
+- Access the website
+- Enter the container
+- Understand the file structure
+- Manage the container
+
+---
+
+# 1. Pull Nginx Image
+
+```bash
+docker pull nginx
+```
+
+Check downloaded images:
+
+```bash
+docker images
+```
+
+Example:
+
+```
+REPOSITORY   TAG       IMAGE ID
+nginx        latest    xxxxxxxxx
+```
+
+---
+
+# 2. Create Nginx Container
+
+```bash
+docker run -d --name nginx -p 80:80 nginx
+```
+
+Explanation
+
+| Option | Meaning |
+|---------|----------|
+| docker run | Create and start a container |
+| -d | Run in background (Detached mode) |
+| --name nginx | Container name |
+| -p 80:80 | Host Port 80 → Container Port 80 |
+| nginx | Image name |
+
+---
+
+# 3. Verify Running Containers
+
+```bash
+docker ps
+```
+
+Example
+
+```
+CONTAINER ID   IMAGE    STATUS      PORTS
+baaed21f872e   nginx    Up 2 mins   0.0.0.0:80->80/tcp
+```
+
+---
+
+# 4. Open Website
+
+Open browser
+
+```
+http://localhost
+```
+
+Expected output
+
+```
+Welcome to nginx!
+```
+
+---
+
+# 5. Enter the Container
+
+```bash
+docker exec -it nginx bash
+```
+
+Prompt changes to
+
+```
+root@container-id:/#
+```
+
+You are now inside the Linux container.
+
+---
+
+# 6. Check Current User
+
+```bash
+whoami
+```
+
+Output
+
+```
+root
+```
+
+Check user details
+
+```bash
+id
+```
+
+Output
+
+```
+uid=0(root)
+```
+
+---
+
+# 7. Explore Container
+
+Root folders
+
+```bash
+ls /
+```
+
+Common folders
+
+```
+/etc
+/usr
+/var
+/tmp
+/home
+/root
+```
+
+---
+
+# 8. Go to Website Folder
+
+```bash
+cd /usr/share/nginx/html
+```
+
+List files
+
+```bash
+ls
+```
+
+Output
+
+```
+index.html
+50x.html
+```
+
+---
+
+# 9. View Default Web Page
+
+```bash
+cat index.html
+```
+
+This is the HTML shown at
+
+```
+http://localhost
+```
+
+---
+
+# 10. Change Website
+
+Replace page
+
+```bash
+echo "<h1>Hello Docker</h1>" > index.html
+```
+
+Refresh browser.
+
+You will see
+
+```
+Hello Docker
+```
+
+---
+
+# 11. Exit Container
+
+```bash
+exit
+```
+
+---
+
+# 12. View Logs
+
+```bash
+docker logs nginx
+```
+
+---
+
+# 13. Stop Container
+
+```bash
+docker stop nginx
+```
+
+---
+
+# 14. Start Container
+
+```bash
+docker start nginx
+```
+
+---
+
+# 15. Restart Container
+
+```bash
+docker restart nginx
+```
+
+---
+
+# 16. Remove Container
+
+Stop first
+
+```bash
+docker stop nginx
+```
+
+Remove
+
+```bash
+docker rm nginx
+```
+
+---
+
+# 17. Remove Image
+
+```bash
+docker rmi nginx
+```
+
+---
+
+# 18. Check Running Processes
+
+```bash
+docker top nginx
+```
+
+---
+
+# 19. Inspect Container
+
+```bash
+docker inspect nginx
+```
+
+Shows
+
+- IP Address
+- Volumes
+- Ports
+- Networks
+- Mounts
+- Configuration
+
+---
+
+# 20. Container Statistics
+
+```bash
+docker stats
+```
+
+Shows
+
+- CPU
+- Memory
+- Network
+- Disk I/O
+
+---
+
+# Important Directories
+
+| Directory | Purpose |
+|------------|----------|
+| /etc/nginx | Configuration |
+| /usr/share/nginx/html | Website files |
+| /var/log/nginx | Log files (if enabled) |
+| /var/cache/nginx | Cache |
+| /tmp | Temporary files |
+
+---
+
+# Nginx Architecture
+
+```
+Browser
+    │
+    ▼
+Host Port 80
+    │
+    ▼
+Docker Engine
+    │
+    ▼
+Nginx Container
+    │
+    ▼
+/usr/share/nginx/html/index.html
+```
+
+---
+
+# Why Use Nginx?
+
+- Serve HTML, CSS, JavaScript
+- Reverse Proxy
+- HTTPS (SSL/TLS)
+- Load Balancer
+- Static Files
+- API Gateway
+
+---
+
+# Reverse Proxy Example
+
+```
+Browser
+    │
+    ▼
+Nginx
+    │
+    ├── Grafana
+    ├── PHP API
+    ├── Node-RED
+    └── MQTT WebSocket
+```
+
+---
+
+# Useful Docker Commands
+
+```bash
+docker images
+docker ps
+docker ps -a
+docker logs nginx
+docker exec -it nginx bash
+docker inspect nginx
+docker top nginx
+docker stats
+docker stop nginx
+docker start nginx
+docker restart nginx
+docker rm nginx
+```
+
+---
+
+# What You Learned
+
+✅ Pull an image
+
+✅ Create a container
+
+✅ Port mapping
+
+✅ Enter a container
+
+✅ Root user
+
+✅ Linux filesystem
+
+✅ Default Nginx website
+
+✅ Modify HTML
+
+✅ Container management
+
+✅ Reverse proxy basics
