@@ -1,0 +1,34 @@
+Docker Networking:
+------------------
+
+Docker networking lets containers communicate with:
+----------------------------------------------------
+Each other
+The host machine
+The outside internet
+  
+Why do we need Docker networks?
+---------------------------------
+Imagine you have:
+
++----------------------+
+| Grafana Container    |
++----------------------+
+           |
+           | needs data from
+           |
++----------------------+
+| InfluxDB Container   |
++----------------------+
+
+If both containers are on the same Docker network, Grafana can connect to InfluxDB using the container name.
+
+
+Docker Network Types:
+======================
+  
+Network                          	Purpose
+bridge	                          Default network for containers
+host	                            Container shares the host's network
+none	                            No network access
+custom bridge                   	ser-created network (most common in real projects)
