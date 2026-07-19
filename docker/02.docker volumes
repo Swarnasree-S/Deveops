@@ -1,18 +1,34 @@
 Docker Volume is a storage area outside the container where data is kept permanently.
+-------------------------------------------------------------------------------------------
 
-
-  Key point to remember
+Key point to remember
+======================
 Without a volume: Data is stored only inside the container and is lost if the container is removed.
+
 With a volume: Data written to the mounted folder is stored in the Docker volume on the host, so it survives container deletion.
+
   Step 1: Create a volume
      docker volume create grafana-data
      docker volume ls
+
   Step 2: Attach the volume to the container
     docker run -d \
     --name grafana \
     -p 8080:3000 \
     -v grafana-data:/var/lib/grafana \
     grafana/grafana 
+
+
+
+
+Easy rule to remember
+==========================
+Item	Who decides?	                  Example
+
+Docker volume name	----------------------    You	nginx-data, grafana-data, mysql-data
+Container folder path	  --------------------  Image documentation	/usr/share/nginx/html, /var/lib/grafana, /var/lib/mysql
+
+
 
   Container
      │
