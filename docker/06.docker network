@@ -62,3 +62,26 @@ http://influxdb:8086
 ---------------------------------------------------------------
 because both containers are on the same network.
 --------------------------------------------------------
+
+
+Now from the Grafana container:
+============================
+ping influxdb
+=================
+or
+
+curl http://influxdb:8086
+================================
+will reach the InfluxDB container.
+=================================
+
+'''
+What if they are on different networks?
+Grafana  --> Network A
+InfluxDB --> Network B
+
+Then:
+
+http://influxdb:8086
+
+will not work, because Docker only resolves names within the same network.'''
