@@ -1,0 +1,19 @@
+docker compose up -d
+
+# Check running containers
+docker compose ps
+
+# View logs
+docker compose logs
+
+# Follow logs in real time
+docker compose logs -f
+
+# Stop containers
+docker compose stop
+
+# Stop and remove containers, networks, etc.
+docker compose down
+
+# Rebuild images and start
+docker compose up -d --build
