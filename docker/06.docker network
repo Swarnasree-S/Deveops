@@ -28,7 +28,37 @@ Docker Network Types:
 ======================
   
 Network                          	Purpose
+======================================================
 bridge	                          Default network for containers
 host	                            Container shares the host's network
 none	                            No network access
 custom bridge                   	ser-created network (most common in real projects)
+
+
+Example
+===============
+Create a network:
+==========================
+docker network create solar-network
+=================================================
+Run InfluxDB:
+=====================
+docker run -d \
+  --name influxdb \
+  --network solar-network \
+  influxdb:2
+
+Run Grafana:
+====================
+docker run -d \
+  --name grafana \
+  --network solar-network \
+  -p 3000:3000 \
+  grafana/grafana
+
+Now Grafana can reach InfluxDB using:
+============================================
+http://influxdb:8086
+---------------------------------------------------------------
+because both containers are on the same network.
+--------------------------------------------------------
